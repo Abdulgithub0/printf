@@ -14,6 +14,8 @@ int _printf(const char *format, ...)
 
 	va_list arg;
 
+	if (!format)
+		return (-1);
 	va_start(arg, format);
 	print_all_format(format, arg);
 	va_end(arg);
@@ -46,7 +48,7 @@ int print_all_format(const char *string, va_list identifier)
 
 			type_t selector[] = {
 				{'c', print_char},
-				{'s', print_string}
+				{'s', print_string},
 			};
 			identifier_index = i + 1;
 			j = 0;
