@@ -11,8 +11,6 @@ void print_string(va_list character)
 {
 	char *string = va_arg(character, char *);
 
-	if (!string)
-		string = "(null)";
 	while (*string)
 	{
 		write(1, &(*string), 1);

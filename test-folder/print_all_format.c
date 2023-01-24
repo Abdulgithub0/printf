@@ -48,7 +48,9 @@ int print_all_format(const char *string, va_list identifier)
 
 			type_t selector[] = {
 				{'c', print_char},
-				{'s', print_string},
+				{'s', print_string}
+				{"%", print_percent},
+				{NULL, NULL}
 			};
 			identifier_index = i + 1;
 			j = 0;
@@ -59,6 +61,8 @@ int print_all_format(const char *string, va_list identifier)
 					selector[j].ptr_type(identifier);
 					break;
 				}
+				else
+				{
 				j++;
 			}
 			i++;
